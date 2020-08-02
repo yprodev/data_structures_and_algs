@@ -17,7 +17,7 @@ public class LinkedList {
     public void addLast(int item) {
         Node node = new Node(item);
 
-        if (first == null)
+        if (isEmpty())
             first = last = node;
         else {
             last.next = node;
@@ -25,8 +25,36 @@ public class LinkedList {
         }
     }
 
-
     // addFirst
+    public void addFirst(int item) {
+        Node node = new Node(item);
+
+        if (isEmpty())
+            first = last = node;
+        else {
+           node.next = first;
+           first = node;
+        }
+    }
+
+    // indexOf
+    public int indexOf(int item) {
+        int index = 0;
+        Node current = first;
+
+        while (current != null) {
+            if (current.value == item) return index;
+            current = current.next;
+            index++;
+        }
+
+        return -1;
+    }
+
+    private boolean isEmpty() {
+        return first == null;
+    }
+
     // deleteFirst
     // deleteLast
     // contains
