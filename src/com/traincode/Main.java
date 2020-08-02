@@ -9,13 +9,15 @@ public class Main {
         LinkedList list = new LinkedList();
 
         list.addLast(20);
-        list.addLast(30);
-        list.addLast(40);
-        list.addFirst(10);
-        list.addFirst(50);
-        list.addFirst(60);
+        System.out.println(list.size());
 
-        list.removeFirst();
+        list.addLast(30);
+        System.out.println(list.size());
+
+        list.addLast(40);
+        System.out.println(list.size());
+
+        list.removeLast();
 
         System.out.println(list.contains(600));
 
