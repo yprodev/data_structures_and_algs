@@ -15,6 +15,8 @@ public class Main {
         list.addFirst(50);
         list.addFirst(60);
 
+        list.removeFirst();
+
         System.out.println(list.contains(600));
 
     }
