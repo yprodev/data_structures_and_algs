@@ -51,12 +51,15 @@ public class LinkedList {
         return -1;
     }
 
+    // contains
+    public boolean contains(int item) {
+        return indexOf(item) != -1;
+    }
+
     private boolean isEmpty() {
         return first == null;
     }
 
     // deleteFirst
     // deleteLast
-    // contains
-    // indexOf
 }
