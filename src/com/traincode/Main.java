@@ -3,23 +3,21 @@ package com.traincode;
 //import java.util.Arrays;
 //import java.util.LinkedList;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
 
         list.addLast(20);
-        System.out.println(list.size());
-
         list.addLast(30);
-        System.out.println(list.size());
-
         list.addLast(40);
-        System.out.println(list.size());
-
         list.removeLast();
 
-        System.out.println(list.contains(600));
+        int[] array = list.toArray();
+
+        System.out.println(Arrays.toString(array));
 
     }
 }
