@@ -1,6 +1,7 @@
 package com.traincode;
 
 import java.util.*;
+import java.util.Stack;
 
 public class Expression {
 
@@ -15,7 +16,7 @@ public class Expression {
                 stack.push(ch);
             if (isRightBracket(ch)) {
                 if (stack.empty()) return false;
-                
+
                 char top = stack.pop();
                 if (!bracketsMatch(top, ch)) return false;
             }
