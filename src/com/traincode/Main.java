@@ -1,22 +1,21 @@
 package com.traincode;
 
-//import java.util.Arrays;
-//import java.util.LinkedList;
-
-import java.util.Arrays;
+import java.util.Stack;
 
 public class Main {
 
     public static void main(String[] args) {
-        LinkedList list = new LinkedList();
+        Stack<Integer> stack = new Stack<>();
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        System.out.println(stack);
 
-        list.addLast(20);
-        list.addLast(30);
-        list.addLast(40);
-        list.addLast(50);
-        list.addLast(60);
-        list.addLast(70);
-        System.out.println(list.getKthFromTheEnd(2));
-
+        int top = stack.pop();
+        System.out.println(top);
+        System.out.println(stack);
+        top = stack.peek();
+        System.out.println(top);
+        System.out.println(stack);
     }
 }
