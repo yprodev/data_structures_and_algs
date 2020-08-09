@@ -13,10 +13,8 @@ public class Main {
         list.addLast(20);
         list.addLast(30);
         list.addLast(40);
-        list.removeLast();
-
+        list.reverse();
         int[] array = list.toArray();
-
         System.out.println(Arrays.toString(array));
 
     }

@@ -121,6 +121,27 @@ public class LinkedList {
         return array;
     }
 
+    public void reverse() {
+        if (isEmpty()) return;
+
+        Node previous = first;
+        Node current = first.next;
+        while (current != null) {
+            Node next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+
+        // Setting head and nulling the reference
+        last = first;
+        last.next = null;
+
+        // Setting tail
+        first = previous;
+
+    }
+
     private boolean isEmpty() {
         return first == null;
     }
