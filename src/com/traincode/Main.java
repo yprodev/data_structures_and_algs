@@ -1,14 +1,21 @@
 package com.traincode;
 
+import java.util.ArrayDeque;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Queue;
+
 public class Main {
     public static void main(String[] args) {
-        Stack stack = new Stack();
+        Queue<Integer> queue = new ArrayDeque<>();
 
-        stack.push(10);
-        stack.push(20);
-        stack.push(30);
+        queue.add(10);
+        queue.add(20);
+        queue.add(30);
 
-        System.out.println(stack.peek());
-        System.out.println(stack.isEmpty());
+        int front = queue.remove();
+
+        System.out.println(front);
+        System.out.println(queue);
     }
 }
