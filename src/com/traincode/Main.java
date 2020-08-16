@@ -1,15 +1,16 @@
 package com.traincode;
 
+import java.util.PriorityQueue;
+
 public class Main {
     public static void main(String[] args) {
-        QueueWithTwoStacks queue = new QueueWithTwoStacks();
-        queue.enqueue(10);
-        queue.enqueue(20);
-        queue.enqueue(30);
-        int first = queue.dequeue();
-        int second = queue.peek();
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        queue.add(5);
+        queue.add(1);
+        queue.add(3);
+        queue.add(2);
 
-        System.out.println(first);
-        System.out.println(second);
+        while (!queue.isEmpty())
+            System.out.println(queue.remove());
     }
 }
