@@ -11,6 +11,8 @@ public class Main {
         table.put(11, "C"); // index = 1
         table.put(6, "A+"); // Override with the new value
 
+        table.remove(6); // Override with the new value
+//        table.remove(60); // Override with the new value
         System.out.println(table.get(10));
     }
 }
