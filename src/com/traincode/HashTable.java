@@ -16,47 +16,57 @@ public class HashTable {
     private LinkedList<Entry>[] entries = new LinkedList[5];
 
     public void put(int key, String value) {
-        int index = hash(key);
-        if (entries[index] == null)
-            entries[index] = new LinkedList<>();
-
-        LinkedList<Entry> bucket = entries[index];
-        for (Entry entry : bucket) {
-            if (entry.key == key) {
-                entry.value = value;
-                return;
-            }
+        Entry entry = getEntry(key);
+        if (entry != null) {
+            entry.value = value;
+            return;
         }
 
-        bucket.addLast(new Entry(key, value));
+        LinkedList<Entry> bucket = getOrCreateBucket(key);
+        bucket.add(new Entry(key, value));
     }
 
     public String get(int key) {
-        int index = hash(key);
-        LinkedList<Entry> bucket = entries[index];
-        if (bucket != null) {
-            for (Entry entry : bucket) {
-                if (entry.key == key)
-                    return entry.value;
-            }
-        }
-        return null;
+        Entry entry = getEntry(key);
+        if (entry == null)
+            return null;
+
+        return entry == null ? null : entry.value;
     }
 
     public void remove(int key) {
+        Entry entry = getEntry(key);
+
+        if (entry == null)
+            throw new IllegalStateException();
+
+        getBucket(key).remove(entry);
+    }
+
+    private LinkedList<Entry> getBucket(int key) {
+        return entries[hash(key)];
+    }
+
+    private LinkedList<Entry> getOrCreateBucket(int key) {
         int index = hash(key);
         LinkedList<Entry> bucket = entries[index];
         if (bucket == null)
-            throw new IllegalStateException();
+            entries[index] = new LinkedList<>();
 
-        for (Entry entry : bucket) {
-            if (entry.key == key) {
-                bucket.remove(entry);
-                return;
+        return bucket;
+    }
+
+    private Entry getEntry(int key) {
+        LinkedList<Entry> bucket = getBucket(key);
+
+        if (bucket != null) {
+            for (Entry entry : bucket) {
+                if (entry.key == key)
+                    return entry;
             }
         }
 
-        throw new IllegalStateException();
+        return null;
     }
 
     private int hash(int key) {
