@@ -109,11 +109,49 @@ public class Tree {
             return -1;
 
         // Base condition
-        if (root.leftChild == null && root.rightChild == null)
+        if (isLeaf(root))
             return 0;
 
         return 1 + Math.max(
                 height(root.leftChild),
                 height(root.rightChild));
     }
+
+    private boolean isLeaf(Node node) {
+        return node.leftChild == null && node.rightChild == null;
+    }
+
+    public int minBinary() {
+        return min(root);
+    }
+
+    // O(n)
+    private int min(Node root) {
+        // This is the algorithm to find min value
+        // in binary tree (not binary search tree).
+        if (isLeaf(root))
+            return root.value;
+
+        int left = min(root.leftChild);
+        int right = min(root.leftChild);
+
+        return Math.min(Math.min(left, right), root.value);
+    }
+
+    // O(log n)
+    public int minBinarySearch() {
+        if (root == null)
+            throw new IllegalStateException();
+
+        Node current = root;
+        Node last = current;
+
+        while (current != null) {
+            last = current;
+            current = current.leftChild;
+        }
+
+        return last.value;
+    }
+
 }
