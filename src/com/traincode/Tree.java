@@ -59,4 +59,43 @@ public class Tree {
 
         return false;
     }
+
+    // Overloading for invoking traversePreOrder method without
+    // arguments in main (root is private).
+    public void traversePreOrder() {
+        traversePreOrder(root);
+    }
+    public void traverseInOrder() {
+        traverseInOrder(root);
+    }
+    public void traversePostOrder() {
+        traversePostOrder(root);
+    }
+
+    private void traversePreOrder(Node root) {
+        // Base condition for the recursion termination
+        if (root == null) return;
+
+        System.out.println(root.value);
+        traversePreOrder(root.leftChild);
+        traversePreOrder(root.rightChild);
+    }
+
+    private void traverseInOrder(Node root) {
+        // Base condition for the recursion termination
+        if (root == null) return;
+
+        traversePreOrder(root.leftChild);
+        System.out.println(root.value);
+        traversePreOrder(root.rightChild);
+    }
+
+    private void traversePostOrder(Node root) {
+        // Base condition for the recursion termination
+        if (root == null) return;
+
+        traversePreOrder(root.leftChild);
+        traversePreOrder(root.rightChild);
+        System.out.println(root.value);
+    }
 }
