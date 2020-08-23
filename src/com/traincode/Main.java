@@ -1,18 +1,16 @@
 package com.traincode;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Main {
     public static void main(String[] args) {
-        HashTable table = new HashTable();
-        table.put(6, "A"); // index = 1
-        table.put(8, "B"); // index = 3
-        table.put(11, "C"); // index = 1
-        table.put(6, "A+"); // Override with the new value
+        Tree tree = new Tree();
+        tree.insert(7);
+        tree.insert(4);
+        tree.insert(9);
+        tree.insert(1);
+        tree.insert(6);
+        tree.insert(8);
+        tree.insert(10);
 
-        table.remove(6); // Override with the new value
-//        table.remove(60); // Override with the new value
-        System.out.println(table.get(10));
+        System.out.println("Done");
     }
 }
