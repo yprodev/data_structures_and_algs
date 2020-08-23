@@ -215,4 +215,10 @@ public class Tree {
         getNodesAtDistance(root.rightChild, distance - 1, list);
     }
 
+    public void traverseLevelOrder() {
+        for (int i = 0; i <= height(); i++) {
+            for (int val : getNodesAtDistance(i))
+                System.out.println(val);
+        }
+    }
 }

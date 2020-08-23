@@ -14,8 +14,6 @@ public class Main {
         tree.insert(8);
         tree.insert(10);
 
-        ArrayList<Integer> list = tree.getNodesAtDistance(2);
-
-        System.out.println(list);
+        tree.traverseLevelOrder();
     }
 }
