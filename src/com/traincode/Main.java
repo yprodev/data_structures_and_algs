@@ -1,5 +1,7 @@
 package com.traincode;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
         Tree tree = new Tree();
@@ -12,11 +14,8 @@ public class Main {
         tree.insert(8);
         tree.insert(10);
 
+        ArrayList<Integer> list = tree.getNodesAtDistance(2);
 
-        System.out.println(tree.isBinarySearchTree());
-
-        tree.swapRoot();
-
-        System.out.println(tree.isBinarySearchTree());
+        System.out.println(list);
     }
 }
