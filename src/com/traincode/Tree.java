@@ -157,7 +157,7 @@ public class Tree {
     public boolean equals(Tree other) {
         if (other == null)
             return false;
-        
+
         return equals(root, other.root);
     }
 
@@ -171,6 +171,21 @@ public class Tree {
                     && equals(first.rightChild, second.rightChild);
 
         return false;
+    }
+
+    public boolean isBinarySearchTree() {
+        return isBinarySearchTree(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean isBinarySearchTree(Node root, int min, int max) {
+        if (root == null)
+            return true;
+
+        if (root.value < min || root.value > max)
+            return false;
+
+        return isBinarySearchTree(root.leftChild, min, root.value - 1)
+                && isBinarySearchTree(root.rightChild, root.value + 1, max);
     }
 
 }
