@@ -173,6 +173,12 @@ public class Tree {
         return false;
     }
 
+    public void swapRoot() {
+        Node temp = root.leftChild;
+        root.leftChild = root.rightChild;
+        root.rightChild = temp;
+    }
+
     public boolean isBinarySearchTree() {
         return isBinarySearchTree(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }

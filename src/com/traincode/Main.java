@@ -14,5 +14,9 @@ public class Main {
 
 
         System.out.println(tree.isBinarySearchTree());
+
+        tree.swapRoot();
+
+        System.out.println(tree.isBinarySearchTree());
     }
 }
