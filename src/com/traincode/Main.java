@@ -2,15 +2,25 @@ package com.traincode;
 
 public class Main {
     public static void main(String[] args) {
-        Tree tree = new Tree();
-        tree.insert(7);
-        tree.insert(4);
-        tree.insert(9);
-        tree.insert(1);
-        tree.insert(6);
-        tree.insert(8);
-        tree.insert(10);
+        System.out.println(factorialLinear(4));
+        System.out.println(factorialRecursive(4));
+    }
 
-        System.out.println(tree.find(11));
+    public static int factorialLinear(int n) {
+        int factorial = 1;
+
+        for (int i = n; i > 1; i--) {
+             factorial *= i;
+        }
+
+        return factorial;
+    }
+
+    public static int factorialRecursive(int n) {
+        // Base condition - termination of the recursion
+        if (n == 0)
+            return 1;
+
+        return n * factorialRecursive(n - 1);
     }
 }
