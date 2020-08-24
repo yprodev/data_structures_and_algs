@@ -36,7 +36,32 @@ public class AVLTree {
                 height(root.leftChild),
                 height(root.rightChild)) + 1;
 
+        // balance factor = height(L) - height(R)
+        // 5 - 4 = 1 - balanced
+        // 5 - 3 = 2 - not balanced
+
+        // if (balance factor > 1) => left heavy ==> rotate right
+        // if (balance factor < -1) => right heavy ==> rotate left
+
+        if (isLeftHeavy(root))
+            System.out.println(root.value + " is left heavy");
+        else if (isRightHeavy(root))
+            System.out.println(root.value + " is right heavy");
+
+
         return root;
+    }
+
+    private boolean isLeftHeavy(AVLNode node) {
+        return getBalanceFactor(node) > 1;
+    }
+
+    private boolean isRightHeavy(AVLNode node) {
+        return getBalanceFactor(node) < -1;
+    }
+
+    private int getBalanceFactor(AVLNode node) {
+        return (node == null) ? 0 : height(node.leftChild) - height(node.rightChild);
     }
 
     private int height(AVLNode node) {
