@@ -21,7 +21,7 @@ public class Heap {
         items[0] = items[--size];
 
         bubbleDown();
-        
+
         return root;
     }
 
@@ -87,6 +87,13 @@ public class Heap {
 
     public boolean isFull() {
         return size == items.length;
+    }
+
+    public int max() {
+        if (isEmpty())
+            throw new IllegalStateException();
+
+        return items[0];
     }
 
     private void bubbleUp() {
