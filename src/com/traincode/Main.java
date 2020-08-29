@@ -1,15 +1,11 @@
 package com.traincode;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        // operation:   Priority Queue       Heap
-        // insert:      O(n)                 O(log n)
-        // remove:      O(1)                 O(log n)
-        PriorityQueue queue = new PriorityQueue();
-        queue.add(30);
-        queue.add(20);
-        queue.add(10);
-        queue.add(5);
-        System.out.println(queue);
+        int[] numbers = { 5, 3, 8, 4, 1, 2 };
+        MaxHeap.heapify(numbers);
+        System.out.println(Arrays.toString(numbers));
     }
 }
