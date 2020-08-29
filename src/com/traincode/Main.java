@@ -1,16 +1,26 @@
 package com.traincode;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
+        int[] numbers = { 5, 3, 10, 1, 4, 2};
+
         Heap heap = new Heap();
-        heap.insert(10);
-        heap.insert(5);
-        heap.insert(17);
-        heap.insert(4);
-        heap.insert(22);
+        for (int number : numbers)
+            heap.insert(number);
 
-        heap.remove();
+//        while(!heap.isEmpty())
+//            System.out.println(heap.remove());
 
-        System.out.println("Done");
+        // DESC order
+//        for (int i = 0; i < numbers.length; i++)
+//            numbers[i] = heap.remove();
+
+        // ASC order
+        for (int i = numbers.length - 1; i >= 0; i--)
+            numbers[i] = heap.remove();
+
+        System.out.println(Arrays.toString(numbers));
     }
 }
