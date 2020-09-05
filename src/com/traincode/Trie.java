@@ -32,6 +32,14 @@ public class Trie {
         public Node[] getChildren() {
             return children.values().toArray(new Node[0]); // new Node[0] to return array of Nodes
         }
+
+        public boolean hasChildren() {
+            return !children.isEmpty();
+        }
+
+        public void removeChild(char ch) {
+            children.remove(ch);
+        }
     }
 
     private Node root = new Node(' '); // Root node without any char
@@ -89,5 +97,33 @@ public class Trie {
 
         System.out.println(root.value);
 
+    }
+
+    public void remove(String word) {
+        if (word == null)
+            return;
+        
+        remove(root, word, 0);
+    }
+
+    private void remove(Node root, String word, int index) {
+        // Base condition
+        if (index == word.length()) {
+            // no need to use length - 1, because recursion works starting from the root node
+            root.isEndOfWord = false;
+            return;
+        }
+
+        char ch = word.charAt(index);
+        Node child = root.getChild(ch);
+        // Need recursively call the remove method
+        if (child == null)
+            return;
+
+        remove(child, word, index + 1); // Recursive part
+
+        if (!child.hasChildren() && !child.isEndOfWord) {
+           root.removeChild(ch);
+        }
     }
 }
