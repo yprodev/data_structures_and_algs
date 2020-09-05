@@ -28,6 +28,10 @@ public class Trie {
         public Node getChild(char ch) {
             return children.get(ch);
         }
+
+        public Node[] getChildren() {
+            return children.values().toArray(new Node[0]); // new Node[0] to return array of Nodes
+        }
     }
 
     private Node root = new Node(' '); // Root node without any char
@@ -58,5 +62,32 @@ public class Trie {
         }
 
         return current.isEndOfWord;
+    }
+
+    public void traversePreOrder() {
+        traversePreOrder(root);
+    }
+
+    private void traversePreOrder(Node root) {
+        // Pre-order: visit the root first
+        System.out.println(root.value);
+
+        for (Node child : root.getChildren()) {
+            traversePreOrder(child);
+        }
+    }
+
+    public void traversePostOrder() {
+        traversePostOrder(root);
+    }
+
+    private void traversePostOrder(Node root) {
+        // Post-order: visit the leaf first
+        for (Node child : root.getChildren()) {
+            traversePostOrder(child);
+        }
+
+        System.out.println(root.value);
+
     }
 }
