@@ -36,12 +36,27 @@ public class Trie {
         Node current = root;
 
         for(char ch : word.toCharArray()) {
-            if (current.hasChild(ch))
+            if (!current.hasChild(ch))
                 current.addChild(ch);
 
             current = current.getChild(ch);
         }
 
         current.isEndOfWord = true;
+    }
+
+    public boolean contains(String word) {
+        if (word == null)
+            return false;
+
+        Node current = root;
+
+        for (char ch : word.toCharArray()) {
+            if (!current.hasChild(ch))
+                return false;
+            current = current.getChild(ch);
+        }
+
+        return current.isEndOfWord;
     }
 }
