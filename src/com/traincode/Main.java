@@ -6,19 +6,16 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         var graph = new Graph();
-        graph.addNode("X");
         graph.addNode("A");
         graph.addNode("B");
-        graph.addNode("P");
+        graph.addNode("C");
 
-        graph.addEdge("X", "A");
-        graph.addEdge("X", "B");
-        graph.addEdge("A", "P");
-        graph.addEdge("B", "P");
+        graph.addEdge("A", "B");
+        graph.addEdge("B", "C");
+        graph.addEdge("C", "A");
 
-        var list = graph.topologicalSort();
 
-        System.out.println(list);
+        System.out.println(graph.hasCycle());
     }
 
 }
