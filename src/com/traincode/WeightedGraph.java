@@ -132,6 +132,32 @@ public class WeightedGraph {
         return buildPath(previousNodes, toNode);
     }
 
+    public boolean hasCycle() {
+        Set<Node> visited = new HashSet<>();
+
+        for (var node : nodes.values()) {
+            if (!visited.contains(node) && hasCycle(node, null, visited))
+                return true;
+        }
+
+        return false;
+    }
+
+    private boolean hasCycle(Node node, Node parent, Set<Node> visited) {
+        visited.add(node);
+
+        for (var edge : node.getEdges()) {
+            if (edge.to == parent)
+                continue;
+
+            if (visited.contains(edge.to) || hasCycle(edge.to, node, visited))
+                return true;
+
+        }
+
+        return false;
+    }
+
     private Path buildPath(Map<Node, Node> previousNodes,Node toNode) {
         Stack<Node> stack = new Stack<>();
         stack.push(toNode);
@@ -148,6 +174,7 @@ public class WeightedGraph {
 
         return path;
     }
+
 
 
 }
