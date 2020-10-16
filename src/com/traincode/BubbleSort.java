@@ -2,7 +2,7 @@ package com.traincode;
 
 public class BubbleSort {
     public void sort(int[] array) {
-        boolean isSorted =
+        boolean isSorted = true;
         for (var i = 0; i < array.length; i++) {
             isSorted = true;
 
