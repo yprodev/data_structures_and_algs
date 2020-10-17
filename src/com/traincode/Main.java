@@ -10,15 +10,10 @@ public class Main {
         int[] numbersSorted = { 1, 2, 3, 4, 6, 8, 13, 31, 643, 1024 };
 
         var search = new Search();
-        var indexOne = search.linearSearch(numbers, 7);
+        var index = search.ternarySearch(numbersSorted, 31);
 
-        var searchBin = new Search();
-        var indexTwo = search.binarySearchRec(numbersSorted, 643);
 
-        var searchBinIter = new Search();
-        var indexThree = searchBinIter.binarySearchIter(numbersSorted, 643);
-
-        System.out.println(indexThree);
+        System.out.println(index);
     }
 
 }
