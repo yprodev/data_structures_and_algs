@@ -1,5 +1,7 @@
 package com.traincode;
 
+import java.util.Map;
+
 public class Search {
     public int linearSearch(int[] array, int target) {
         for (var i = 0; i < array.length; i++) {
@@ -97,5 +99,16 @@ public class Search {
         }
 
         return -1;
+    }
+
+    public int exponentialSearch(int[] array, int target) {
+        int bound = 1;
+
+        while (bound < array.length && array[bound] < target)
+            bound *= 2;
+
+        var left = bound / 2;
+        var right = Math.min(bound, array.length - 1);
+        return binarySearchRec(array, target, left, right);
     }
 }

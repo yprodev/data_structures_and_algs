@@ -10,7 +10,7 @@ public class Main {
         int[] numbersSorted = { 1, 2, 3, 4, 6, 8, 13, 31, 643, 1024 };
 
         var search = new Search();
-        var index = search.jumpSearch(numbersSorted, 31);
+        var index = search.exponentialSearch(numbersSorted, 31);
 
         System.out.println(index);
     }
