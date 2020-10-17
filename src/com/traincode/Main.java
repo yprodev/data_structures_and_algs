@@ -15,7 +15,10 @@ public class Main {
         var searchBin = new Search();
         var indexTwo = search.binarySearchRec(numbersSorted, 643);
 
-        System.out.println(indexTwo);
+        var searchBinIter = new Search();
+        var indexThree = searchBinIter.binarySearchIter(numbersSorted, 643);
+
+        System.out.println(indexThree);
     }
 
 }
