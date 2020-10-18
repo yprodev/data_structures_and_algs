@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        String count = StringUtils.reverseWords("hello world");
+        Boolean rotation = StringUtils.areRotations("ABCD", "BCDA");
 
-        System.out.println(count);
+        System.out.println(rotation);
     }
 }
