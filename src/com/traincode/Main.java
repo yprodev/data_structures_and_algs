@@ -1,13 +1,9 @@
 package com.traincode;
 
-
-import java.util.Arrays;
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
-        String uniqueStr = StringUtils.removeDuplicates("Trees are beautiful");
+        Character naxChar = StringUtils.getMaxOccuringCharASCII("Trees are beautiful");
 
-        System.out.println(uniqueStr);
+        System.out.println(naxChar);
     }
 }
