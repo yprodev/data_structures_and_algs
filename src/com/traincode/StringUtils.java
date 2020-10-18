@@ -121,4 +121,28 @@ public class StringUtils {
         return Arrays.equals(arr1, arr2);
 
     }
+
+    public static boolean areAnagramsHash(String first, String second) {
+        if (first == null || second == null)
+            return false;
+
+        final int ENGLISH_ALPHABET = 26;
+        int[] frequencies = new int[ENGLISH_ALPHABET];
+
+        first = first.toLowerCase();
+        second = second.toLowerCase();
+
+        for (var i = 0; i < first.length(); i++)
+            frequencies[first.charAt(i) - 'a']++;
+
+        for (var i = 0; i < second.length(); i++) {
+            var index = second.charAt(i) - 'a';
+            if (frequencies[index] == 0)
+                return false;
+
+            frequencies[index]--;
+        }
+
+        return true;
+    }
 }
