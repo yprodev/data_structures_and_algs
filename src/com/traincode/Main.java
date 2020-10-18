@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        String count = StringUtils.reverse("hello world");
+        String count = StringUtils.reverseWords("hello world");
 
         System.out.println(count);
     }
