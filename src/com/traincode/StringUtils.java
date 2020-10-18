@@ -107,4 +107,18 @@ public class StringUtils {
 
         return String.join(" ", words);
     }
+
+    public static boolean areAnagrams(String first, String second) {
+        if (first == null || second == null || first.length() != second.length())
+            return false;
+
+        var arr1 = first.toLowerCase().toCharArray();
+        var arr2 = second.toLowerCase().toCharArray();
+
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+
+        return Arrays.equals(arr1, arr2);
+
+    }
 }

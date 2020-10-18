@@ -2,8 +2,8 @@ package com.traincode;
 
 public class Main {
     public static void main(String[] args) {
-        String capitalized = StringUtils.capitalize("Trees are beautiful");
+        Boolean areAnagrams = StringUtils.areAnagrams("ABCD", "BCDA");
 
-        System.out.println(capitalized);
+        System.out.println(areAnagrams);
     }
 }
