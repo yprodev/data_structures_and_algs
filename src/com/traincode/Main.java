@@ -2,8 +2,8 @@ package com.traincode;
 
 public class Main {
     public static void main(String[] args) {
-        Boolean areAnagrams = StringUtils.areAnagrams("ABCD", "BCDA");
+        Boolean isPalindrom = StringUtils.isPalindromPointers("MADAM");
 
-        System.out.println(areAnagrams);
+        System.out.println(isPalindrom);
     }
 }
